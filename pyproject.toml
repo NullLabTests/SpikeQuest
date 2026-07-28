@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "spikequest"
+version = "0.1.0"
+description = "Spiking neural network agent for grid-world navigation using reward-modulated STDP"
+authors = [
+    {name = "SpikeQuest Contributors"},
+]
+license = {text = "MIT"}
+readme = "README.md"
+requires-python = ">=3.10"
+keywords = ["spiking-neural-networks", "stdp", "neuromorphic", "reinforcement-learning", "grid-world"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.10",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "numpy>=1.24",
+    "torch>=2.0",
+    "matplotlib>=3.7",
+    "pyyaml>=6.0",
+    "seaborn>=0.12",
+]
+
+[project.optional-dependencies]
+snntorch = ["snntorch>=0.9"]
+dev = ["pytest>=7", "pytest-cov>=4"]
+notebook = ["jupyter", "ipykernel"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]

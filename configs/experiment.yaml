@@ -1,0 +1,49 @@
+env:
+  size: 10
+  max_steps: 200
+  partial_obs: false
+  reward_goal: 10.0
+  reward_step: 0.0
+  reward_obstacle: -0.1
+  reward_visited: 0.0
+
+agent:
+  n_input: 20
+  n_hidden: 64
+  n_output: 4
+  T: 10
+  novelty_coeff: 1.0
+  baseline_decay: 0.9
+  novelty_mode: "visited"
+
+rstdp:
+  tau_pre: 20.0
+  tau_post: 20.0
+  tau_elig: 50.0
+  lr: 0.005
+  lr_decay: 1.0
+  w_init: 0.3
+  w_init_std: 0.1
+  w_min: 0.0
+  w_max: 1.0
+  weight_decay: 0.0
+
+neuron:
+  tau_m: 20.0
+  V_th: 1.0
+  V_reset: 0.0
+  dt: 1.0
+
+experiment:
+  n_episodes: 200
+  n_seeds: 5
+  eval_interval: 10
+  n_eval_episodes: 5
+  log_dir: "experiments/outputs"
+
+baselines:
+  tabular_q:
+    enabled: true
+    lr: 0.1
+    gamma: 0.95
+    epsilon: 0.1
